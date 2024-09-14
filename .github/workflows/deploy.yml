@@ -51,14 +51,14 @@ jobs:
         PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
       run: pulumi login
 
-    - name: List files in repository root
-      run: |
-        echo "Current directory: $(pwd)"
-        ls -al
+    # - name: List files in repository root
+    #   run: |
+    #     echo "Current directory: $(pwd)"
+    #     ls -al
 
-    - name: List files in the specified directory
-      run: |
-        ls -al aws-infra-01 # <-- Adjust this to the actual directory
+    # - name: List files in the specified directory
+    #   run: |
+    #     ls -al aws-infra-01 # <-- Adjust this to the actual directory
 
     - name: Pulumi stack select
       working-directory: aws-infra-01 # <-- Adjust this to the actual directory
