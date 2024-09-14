@@ -54,4 +54,11 @@ jobs:
     - name: Run Pulumi stack
       run: |
         pulumi up --yes
-
+    - name: List files for debugging
+      run: |
+        ls -al
+        
+    - name: Run Pulumi stack
+      working-directory: ./aws-infra-01/Pulumi.yaml # <-- Set the path to your Pulumi.yaml file
+      run: |
+        pulumi up --yes
