@@ -51,11 +51,18 @@ jobs:
         PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
       run: pulumi login
 
+# Select this stack
     - name: Pulumi stack select
       run: |
-        source venv/bin/activate
-        cd aws-infra-01
         pulumi stack select arifhossaincse22/aws-infra-02/dev
+
+# # Run the program to update the stack
+# pulumi up
+#     # - name: Pulumi stack select
+#     #   run: |
+#     #     source venv/bin/activate
+#     #     cd aws-infra-01
+#     #     pulumi stack select arifhossaincse22/aws-infra-02/dev
 
     - name: Pulumi up
       run: |
