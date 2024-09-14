@@ -51,14 +51,14 @@ jobs:
         PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
       run: pulumi login
 
-    - name: Run Pulumi stack
+    - name: Pulumi stack select
       run: |
-        pulumi up --yes
-    - name: List files for debugging
+        source venv/bin/activate
+        cd aws-infra-01
+        pulumi stack select arifhossaincse22/aws-infra-02/dev
+
+    - name: Pulumi up
       run: |
-        ls -al
-        
-    - name: Run Pulumi stack
-      working-directory: ./aws-infra-01/Pulumi.yaml # <-- Set the path to your Pulumi.yaml file
-      run: |
+        source venv/bin/activate
+        cd aws-infra-01
         pulumi up --yes
