@@ -51,20 +51,25 @@ jobs:
         PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
       run: pulumi login
 
-    - name: List files in directory
+    - name: List files in repository root
       run: |
         echo "Current directory: $(pwd)"
         ls -al
 
+    - name: List files in the specified directory
+      run: |
+        ls -al aws-infra-01 # <-- Adjust this to the actual directory
+
     - name: Pulumi stack select
-      working-directory: ./home/arif/Desktop/VxLAN_For_Overlay_Networking_In_AWS-01/aws-infra-01/ # <-- Update this path
+      working-directory: aws-infra-01 # <-- Adjust this to the actual directory
       run: |
         pulumi stack select arifhossaincse22/aws-infra-02/dev
 
     - name: Run Pulumi stack
-      working-directory: ./home/arif/Desktop/VxLAN_For_Overlay_Networking_In_AWS-01/aws-infra-01/ # <-- Update this path
+      working-directory: aws-infra-01 # <-- Adjust this to the actual directory
       run: |
         pulumi up --yes
+
 
 
 
